@@ -40,7 +40,7 @@
                <td>{{data.Image}}</td>
                <td>{{data.Name}}</td>
                <td>{{data.SKU}}</td>
-               <td class="td-dmy"><p class=" bg-info dta-dmy">{{data.store}}</p></td>
+               <td ><span class="badge badge-info">{{data.store}}</span></td>
                <td>{{data.stock}}</td>
                <td>{{data.price}}</td>
                <td>{{data.created_date}}</td>

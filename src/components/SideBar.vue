@@ -92,11 +92,6 @@ components: {
     padding: 20px 20px 20px 10px;
     
   }
-  @media (min-width: 1200px) {
-    button.close{
-      display: none;
-    }
-  }
   @media (min-width: 1000px) {
     button.close{
       display: none;

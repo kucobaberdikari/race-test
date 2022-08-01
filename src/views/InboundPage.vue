@@ -46,12 +46,12 @@
    <div class="card-body">
       <table class="table table-bordered table-striped table-responsive-md" id="table1">
          <thead>
-            <tr >
-               <th>No</th>
-               <th>Kode Inbound</th>
-               <th>Dikirim Ke</th>
-               <th>Tanggal Inbound</th>
-               <th>Status</th> 
+            <tr class="">
+               <th class="dt-head-center">No</th>
+               <th class="dt-head-center">Kode Inbound</th>
+               <th class="dt-head-center">Dikirim Ke</th>
+               <th class="dt-head-center">Tanggal Inbound</th>
+               <th class="dt-head-center">Status</th> 
             </tr>
          </thead>
          <tbody>
@@ -114,8 +114,12 @@ import $ from "jquery";
     },
     mounted(){
        $('#table1').dataTable({
-         "responsive": false,"lengthChange": true,
-
+         "responsive": false,"lengthChange": false,
+        columnDefs: [
+      {
+          className: 'dt-head-center dt-body-center'
+      }
+    ],
      });
     },
     methods: {
