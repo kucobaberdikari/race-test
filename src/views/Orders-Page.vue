@@ -13,7 +13,7 @@
             <div class="col-md-12">
                 <b-card no-body>
                     <b-tabs pills card class="col-md-12" content-class="mt-3" justified>
-                        <b-tab no-body title="All" active>
+                        <b-tab no-body title="All " active>
                             <table class="table table-bordered table-striped table-responsive-md" id="table1">
                                 <thead>
                                     <tr>
@@ -30,7 +30,12 @@
                                         <td>{{data.id}}</td>
                                         <td>{{data.invoice}}</td>
                                         <td>{{data.total}}</td>
-                                        <td>{{data.status}}</td>
+                                        <td v-if="data.status === 'Inbound'"> <span class="badge badge-warning">{{data.status}}</span></td>
+                                        <td v-else-if="data.status === 'proses'"> <span class="badge badge-primary">{{data.status}}</span></td>
+                                        <td v-else-if="data.status === 'Outbound'"> <span class="badge badge-success">{{data.status}}</span></td>
+                                        <td v-else-if="data.status === 'Dikirim'"> <span class="badge badge-info">{{data.status}}</span></td>
+                                        <td v-else-if="data.status === 'Sampai'"> <span class="badge badge-secondary">{{data.status}}</span></td>
+                                        <td v-else><span class="badge bagde-default">{{data.status}}</span></td>
                                         <td>{{data.gudang}}</td>
                                         <td>{{data.created_at}}</td>
                                     </tr>
@@ -38,7 +43,7 @@
                             </table>
                         </b-tab>
                         <b-tab no-body title="Inbound">
-                           <table class="table table-bordered table-striped" id="table1">
+                           <table class="table table-bordered table-striped" id="table2">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -54,7 +59,7 @@
                                         <td>{{data.id}}</td>
                                         <td>{{data.invoice}}</td>
                                         <td>{{data.total}}</td>
-                                        <td>{{data.status2}}</td>
+                                        <td><span class="badge badge-warning">{{data.status}}</span></td>
                                         <td>{{data.gudang}}</td>
                                         <td>{{data.created_at}}</td>
                                     </tr>
@@ -62,7 +67,7 @@
                             </table>
                         </b-tab>
                         <b-tab no-body title="Proses">
-                           <table class="table table-bordered table-striped" id="table1">
+                           <table class="table table-bordered table-striped" id="table3">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -78,7 +83,7 @@
                                         <td>{{data.id}}</td>
                                         <td>{{data.invoice}}</td>
                                         <td>{{data.total}}</td>
-                                        <td>{{data.status2}}</td>
+                                        <td><span class="badge badge-primary">{{data.status}}</span></td>
                                         <td>{{data.gudang}}</td>
                                         <td>{{data.created_at}}</td>
                                     </tr>
@@ -86,7 +91,7 @@
                             </table>
                         </b-tab>
                         <b-tab no-body title="Outbond">
-                           <table class="table table-bordered table-striped" id="table1">
+                           <table class="table table-bordered table-striped" id="table4">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -102,7 +107,7 @@
                                         <td>{{data.id}}</td>
                                         <td>{{data.invoice}}</td>
                                         <td>{{data.total}}</td>
-                                        <td>{{data.status2}}</td>
+                                        <td><span class="badge badge-success">{{data.status}}</span></td>
                                         <td>{{data.gudang}}</td>
                                         <td>{{data.created_at}}</td>
                                         <td></td>
@@ -111,7 +116,7 @@
                             </table>
                         </b-tab>
                         <b-tab no-body title="Dikirim">
-                           <table class="table table-bordered table-striped" id="table1">
+                           <table class="table table-bordered table-striped" id="table5">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -127,7 +132,7 @@
                                         <td>{{data.id}}</td>
                                         <td>{{data.invoice}}</td>
                                         <td>{{data.total}}</td>
-                                        <td>{{data.status}}</td>
+                                        <td><span class="badge badge-info">{{data.status}}</span></td>
                                         <td>{{data.gudang}}</td>
                                         <td>{{data.created_at}}</td>
                                     </tr>
@@ -135,7 +140,7 @@
                             </table>
                         </b-tab>
                         <b-tab no-body title="Sampai">
-                            <table class="table table-bordered table-striped">
+                            <table class="table table-bordered table-striped" id="table6">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -151,7 +156,7 @@
                                         <td>{{data.id}}</td>
                                         <td>{{data.invoice}}</td>
                                         <td>{{data.total}}</td>
-                                        <td>{{data.status2}}</td>
+                                        <td><span class="badge badge-secondary">{{data.status}}</span></td>
                                         <td>{{data.gudang}}</td>
                                         <td>{{data.created_at}}</td>
                                     </tr>
@@ -180,7 +185,13 @@ export default{
        $('#table1').dataTable({
          "responsive": false,"lengthChange": false,
      });
-    }
+      $.ajax({
+
+        })
+    },
+//    computed(){
+
+//    },
 }
 </script>
 

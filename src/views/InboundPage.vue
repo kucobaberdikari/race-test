@@ -47,24 +47,26 @@
       <table class="table table-bordered table-striped table-responsive-md" id="table1">
          <thead>
             <tr >
-               <th>Image</th>
-               <th>Name</th>
-               <th>SKU</th>
-               <th>Store</th>
-               <th>Stock</th>
-               <th>Price</th>
-               <th>Created Date</th>
+               <th>No</th>
+               <th>Kode Inbound</th>
+               <th>Dikirim Ke</th>
+               <th>Tanggal Inbound</th>
+               <th>Status</th> 
             </tr>
          </thead>
          <tbody>
-            <tr v-for="data in datas" :key="data.SKU">
-               <td>{{data.Image}}</td>
-               <td>{{data.Name}}</td>
-               <td>{{data.SKU}}</td>
-               <td><span class="badge badge-info">{{data.store}}</span></td>
-               <td>{{data.stock}}</td>
-               <td>{{data.price}}</td>
-               <td>{{data.created_date}}</td>
+            <tr v-for="data in datas" :key="data.id">
+               <td>{{data.id}}</td>
+               <td v-if="data.status === 'Menunggu Penerimaan'"><span class="badge badge-warning badge1"><i class="far fa-dot-circle"></i></span>{{data.kd_inbound}}</td>
+               <td v-else-if="data.status === 'Menunggu Pengiriman'"><span class="badge badge-secondary badge1"><i class="far fa-dot-circle"></i></span>{{data.kd_inbound}}</td>
+               <td v-else-if="data.status === 'Sudah Diterima'"><span class="badge badge-primary badge1"><i class="far fa-dot-circle"></i></span>{{data.kd_inbound}}</td>
+               <td v-else><span class="badge badge-success badge1"><i class="far fa-dot-circle"></i></span>{{data.kd_inbound}}</td>
+               <td>{{data.tujuan}}</td>
+               <td>{{data.tanggal}}</td>
+               <td v-if="data.status === 'Menunggu Penerimaan'"><span class="badge badge-warning">{{data.status}}</span></td>
+               <td v-else-if="data.status === 'Menunggu Pengiriman'"><span class="badge badge-secondary">{{data.status}}</span></td>
+               <td v-else-if="data.status === 'Sudah Diterima'"><span class="badge badge-primary">{{data.status}}</span></td>
+               <td v-else><span class="badge badge-success">{{data.status}}</span></td>
             </tr>
          </tbody>
       </table>
@@ -88,7 +90,7 @@
 import ModalAdd from "../components/ModalAdd.vue";
 // import ToastrNotif from '../components/ToastrNotif.vue';
 import ChatBox from "@/components/ChatBox.vue";
-import Datadummy from "../components/data-dummy/Data-dummy.json";
+import Datadummy from "../components/data-dummy/Inbond-Dummy.json";
 import $ from "jquery";
   export default {
     name: 'InboundPage',
@@ -112,7 +114,8 @@ import $ from "jquery";
     },
     mounted(){
        $('#table1').dataTable({
-         "responsive": false,"lengthChange": false,
+         "responsive": false,"lengthChange": true,
+
      });
     },
     methods: {
@@ -127,7 +130,6 @@ import $ from "jquery";
       },
       closeChat(){
          this.ChatVisible = false;
-         this.isShow = true;
       },
       openForm() {
        document.getElementById("myForm").style.display = "block";
@@ -156,7 +158,7 @@ import $ from "jquery";
   
   
 </script>
-<style>
+<style scoped>
 .row1{
    padding-right:20px;
    padding-left:20px;
@@ -343,5 +345,8 @@ import $ from "jquery";
 .content-wrapper{
   padding-left: 30px;
   padding-right:20px;
+}
+span.badge1{
+  margin-right: 5px;
 }
 </style>

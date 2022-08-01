@@ -90,9 +90,7 @@
       <table class="table table-bordered table-striped table-responsive-md" id="table1">
          <thead>
             <tr>
-                <th class="hidden">
-                    id
-                </th>
+               <!-- <th>No</th> -->
                <th>Seller</th>
                <th>Tipe Barcode</th>
                <th>Qty SKU</th>
@@ -101,12 +99,18 @@
          </thead>
          <tbody>
             <tr v-for="data in datas" :key="data.id">
-               <td class="hidden">{{data.id}}</td>
+               <!-- <td class="hidden">{{data.id}}</td> -->
                <td>
-                <!-- <div class="col-sm-4 border tes" > 
-                  <div class="row">{{data.seller}}</div>
-                <small>{{data.telepon}}</small>
-                </div> -->
+                <div class="d-flex px-3 py-1">
+                  <div>
+                    <i class="fa-thin fa-store"></i>
+                  </div>
+                  <div class="d-flex flex-column justify content-center">
+                    <p class="h6 mb-0 text-sm mb-1">{{data.seller}}</p>
+                    <a href="#" class="text-sm text-secondary mb-0">{{data.telepon}}</a>
+                  </div>
+                </div>
+
                </td>
                <td>{{data.barcode}}</td>
                <td>{{data.SKU}}</td>
@@ -141,9 +145,11 @@ export default{
     mounted(){
        $('#table1').dataTable({
          "responsive": false,"lengthChange": false,
-     });
+         
+     });  
     }
 }
+
 </script>
 
 <style scoped>

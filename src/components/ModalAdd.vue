@@ -1,5 +1,5 @@
 <template>
-<div class="modal-backdrop ">
+<div class="modal-fade ">
   <div class=" modal-content modal-xl" role="dialog" aria-hidden="true" aria-labelledby="modalTitle"  aria-describedby="modalDescription">
         <header class="modal-header" id="modalTitle">
           <slot name="header">

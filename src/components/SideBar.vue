@@ -1,8 +1,5 @@
 <template>
-  <aside class=" main-sidebar sidebar-dark-primary elevation-4 sidebar-no-expand">
-      <!-- <button class="close" type="button" data-dismiss="control-sidebar" aria-label="close" data-controlsidebar-slide="true">
-        <span aria-hidden="true">&times;</span>
-      </button> -->
+  <aside class=" main-sidebar sidebar-dark-primary elevation-4 sidebar-no-expand sidebar-collapse">
   <!-- Brand Logo -->
   <div class="brand-link">
          <button class="close" type="button" data-widget="pushmenu" aria-label="close" >
@@ -92,7 +89,20 @@ components: {
 
 <style scoped>
   .brand-link{
-    padding: 20px 20px 20px 0px;
+    padding: 20px 20px 20px 10px;
     
+  }
+  @media (min-width: 1200px) {
+    button.close{
+      display: none;
+    }
+  }
+  @media (min-width: 1000px) {
+    button.close{
+      display: none;
+    }
+  }
+  li.nav-header{
+    margin-left: 37px;
   }
 </style>
