@@ -26,8 +26,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="data in data" :key="data.id">
-                                        <td>{{data.id}}</td>
+                                    <tr v-for="(data,index) in data" :key="data.id">
+                                        <td  >{{index+1}}</td>
                                         <td>{{data.invoice}}</td>
                                         <td>{{data.total}}</td>
                                         <td v-if="data.status === 'Inbound'"> <span class="badge badge-warning">{{data.status}}</span></td>
@@ -43,7 +43,7 @@
                             </table>
                         </b-tab>
                         <b-tab no-body title="Inbound">
-                           <table class="table table-bordered table-striped" id="table2">
+                           <table class="table table-bordered table-striped table-responsive-md" id="table2">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -55,8 +55,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="data in data" :key="data.id">
-                                        <td>{{data.id}}</td>
+                                    <tr v-for="(data,index) in filterstatusInbound" :key="data.id">
+                                        <td>{{index+1}}</td>
                                         <td>{{data.invoice}}</td>
                                         <td>{{data.total}}</td>
                                         <td><span class="badge badge-warning">{{data.status}}</span></td>
@@ -67,7 +67,7 @@
                             </table>
                         </b-tab>
                         <b-tab no-body title="Proses">
-                           <table class="table table-bordered table-striped" id="table3">
+                           <table class="table table-bordered table-striped table-responsive-md" id="table3">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -79,8 +79,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                     <tr v-for="data in data" :key="data.id">
-                                        <td>{{data.id}}</td>
+                                     <tr v-for="(data,index) in data" :key="data.id">
+                                        <td>{{index+1}}</td>
                                         <td>{{data.invoice}}</td>
                                         <td>{{data.total}}</td>
                                         <td><span class="badge badge-primary">{{data.status}}</span></td>
@@ -91,7 +91,7 @@
                             </table>
                         </b-tab>
                         <b-tab no-body title="Outbond">
-                           <table class="table table-bordered table-striped" id="table4">
+                           <table class="table table-bordered table-striped table-responsive-md" id="table3">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -103,8 +103,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="data in data" :key="data.id">
-                                        <td>{{data.id}}</td>
+                                    <tr v-for="(data,index) in data" :key="data.id">
+                                        <td>{{index+1}}</td>
                                         <td>{{data.invoice}}</td>
                                         <td>{{data.total}}</td>
                                         <td><span class="badge badge-success">{{data.status}}</span></td>
@@ -116,7 +116,7 @@
                             </table>
                         </b-tab>
                         <b-tab no-body title="Dikirim">
-                           <table class="table table-bordered table-striped" id="table5">
+                           <table class="table table-bordered table-striped table-responsive-md" id="table5">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -140,7 +140,7 @@
                             </table>
                         </b-tab>
                         <b-tab no-body title="Sampai">
-                            <table class="table table-bordered table-striped" id="table6">
+                            <table class="table table-bordered table-striped table-responsive-md" id="table6">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -152,8 +152,8 @@
                                     </tr>
                                 </thead>
                                <tbody>
-                                     <tr v-for="data in data" :key="data.id">
-                                        <td>{{data.id}}</td>
+                                     <tr v-for="(data,index) in data" :key="data.id">
+                                        <td>{{index+1}}</td>
                                         <td>{{data.invoice}}</td>
                                         <td>{{data.total}}</td>
                                         <td><span class="badge badge-secondary">{{data.status}}</span></td>
@@ -185,13 +185,28 @@ export default{
        $('#table1').dataTable({
          "responsive": false,"lengthChange": false,
      });
-      $.ajax({
-
-        })
+       $('#table2').dataTable({
+         "responsive": false,"lengthChange": false,
+     });
+       $('#table3').dataTable({
+         "responsive": false,"lengthChange": false,
+     });
+       $('#table4').dataTable({
+         "responsive": false,"lengthChange": false,
+     });
+       $('#table5').dataTable({
+         "responsive": false,"lengthChange": false,
+     });
+       $('#table6').dataTable({
+         "responsive": false,"lengthChange": false,
+     });
+      
     },
-//    computed(){
-
-//    },
+   computed:{
+        filterstatusInbound(){
+            return this.data.filter(data=>data.status === 'Inbound ');
+        }
+   },
 }
 </script>
 

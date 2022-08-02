@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import * as VueGoogleMaps from "vue2-google-maps" 
 
 import "../node_modules/admin-lte/dist/css/adminlte.min.css";
 import "../node_modules/admin-lte/dist/js/adminlte.js";
@@ -38,6 +39,13 @@ Vue.config.productionTip = false
 
 Vue.use(BootstrapVue,IconsPlugin)
 $.widget.bridge('uibutton', $.ui.button)
+
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: "GOOGLE MAP API KEY GOES HERE",
+    libraries: "places"
+  }
+});
 
 new Vue({
   router,

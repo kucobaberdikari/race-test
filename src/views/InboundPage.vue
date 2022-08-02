@@ -55,8 +55,8 @@
             </tr>
          </thead>
          <tbody>
-            <tr v-for="data in datas" :key="data.id">
-               <td>{{data.id}}</td>
+            <tr v-for="(data,index) in datas" :key="data.id">
+               <td>{{index+1}}</td>
                <td v-if="data.status === 'Menunggu Penerimaan'"><span class="badge badge-warning badge1"><i class="far fa-dot-circle"></i></span>{{data.kd_inbound}}</td>
                <td v-else-if="data.status === 'Menunggu Pengiriman'"><span class="badge badge-secondary badge1"><i class="far fa-dot-circle"></i></span>{{data.kd_inbound}}</td>
                <td v-else-if="data.status === 'Sudah Diterima'"><span class="badge badge-primary badge1"><i class="far fa-dot-circle"></i></span>{{data.kd_inbound}}</td>
