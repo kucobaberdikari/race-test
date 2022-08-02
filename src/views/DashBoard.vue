@@ -55,8 +55,8 @@
                 <div class="card shadow-lg">
                     <div class="card-header">
                         <div class="col-md-6 float-left">
-                                <h5 class="card-title"><b>Last Order</b></h5>
-                            <p class="card-text"><b>RC-</b>0821-0292282</p>
+                            <dt>Last Order</dt>
+                            <dd>RC-0821-0292282</dd>
                         </div>
 
                         <!-- tools card -->
@@ -80,62 +80,55 @@
                                 <div class="timeline">
                                     <div>
                                         <i class="far fa-dot-circle bg-indigo"></i>
-                                        <div class="timeline-item">
-                                                <h4 class="timeline-header"><b>Inbound</b></h4>
-                                                <p>Kamis, 20 Agustus 2018 11.00 PM</p>
+                                        <div class="timeline-body ">
+                                            <dt>Inbound</dt>
+                                            <dd>Kamis, 20 Agustus 2018 11.00 PM</dd>
                                         </div>
                                     </div>
                                     <div>
                                          <i class="far fa-dot-circle bg-orange"></i>
-                                         <div class="timeline-item">
-                                            <h4 class="timeline-header"><b>QC Checking</b></h4>
-                                            <p>Jumat, 21 Agustus 2018 08.00 PM</p>
+                                         <div class="timeline-body">
+                                            <dt>QC Checking</dt>
+                                            <dd>Jumat, 21 Agustus 2018 08.00 PM</dd>
                                          </div>
                                     </div>
                                     <div>
                                         <i class="far fa-dot-circle bg-orange"></i>
-                                        <div class="timeline-item">
-                                            <h4 class="timeline-header"><b>Labeling</b></h4>
-                                            <div class="timeline-body">
-                                                <p>Jumat, 21 Agustus 2018 09.00 PM</p>
-                                            </div>
+                                        <div class="timeline-body">
+                                            <dt>Labeling</dt>
+                                            <dd>Jumat, 21 Agustus 2018 09.00 PM</dd>
                                         </div>
                                     </div>
                                     <div>
                                          <i class="far fa-dot-circle bg-orange"></i>
-                                         <div class="timeline-item">
-                                            <h4 class="timeline-header"><b>Storing</b></h4>
-                                            <div class="timeline-body">
-                                                <p>Jumat, 21 Agustus 2018 10.00 PM</p>
-                                            </div>
+                                         <div class="timeline-body">
+                                            <dt>Storing</dt>
+                                            <dd>Jumat, 21 Agustus 2018 10.00 PM</dd>
                                          </div>
                                     </div>
                                     <div>
                                         <i class="far fa-dot-circle bg-orange"></i>
-                                         <div class="timeline-item">
-                                            <h4 class="timeline-header"><b>Packing</b></h4>
-                                            <div class="timeline-body">
-                                                <p>Jumat, 21 Agustus 2018 11.00 PM</p>
-                                            </div>
+                                         <div class="timeline-body">
+                                            <dt>Packing</dt>
+                                            <dd>Jumat, 21 Agustus 2018 11.00 PM</dd>
                                          </div>
                                     </div>
                                     <div>
                                          <i class="far fa-dot-circle bg-indigo"></i>
-                                         <div class="timeline-item">
-                                            <h4 class="timeline-header"><b>Outbound</b></h4>
-                                            <div class="timeline-body">
-                                                <p>Jumat, 21 Agustus 2018 14.00 PM</p>
-                                            </div>
+                                         <div class="timeline-body">
+                                            <dt>Outbound</dt>
+                                            <dd>Jumat, 21 Agustus 2018 14.00 PM</dd>
                                          </div>
                                     </div>
                                     <div>
-                                        <i class="far fa-car bg-blue"></i>
-                                        <div class="timeline-item">
-                                            <h4 class="timeline-header"><b>Delivery</b></h4>
-                                            <div class="timeline-body">
-                                                <p>Jumat, 21 Agustus 2018 16.00 PM</p>
-                                            </div>
+                                       <i class="fal fa-car-alt bg-blue"></i>
+                                        <div class="timeline-body">
+                                            <dt>Delivery</dt>
+                                            <dd>Jumat, 21 Agustus 2018 16.00 PM</dd>
                                          </div>
+                                    </div>
+                                    <div>
+                                        <i class="far fa-circle bg-dark"></i>
                                     </div>
                                 </div>
                             </div>
@@ -151,6 +144,34 @@
                 </div>
           </div>
         </div>
+        <div class="row">
+            <div class="col-lg-7 connectedSortable">
+                <div class="card shadow-lg">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <b>Stock overview</b>
+                        </div>
+                        <div class="card-text">
+                            <div class="col-4 text-center">
+                                <div id="sparkline-1"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 connectedSortable">
+                  <div class="card shadow-lg">
+                    <div class="card-body">
+                        <h4 class="card-title">Expired Stock's</h4>
+                        <div class="card-text">
+                            <canvas id="pieChart" >
+
+                            </canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -160,6 +181,11 @@ export default{
 name: "DashBoard",
 components:{
     AddGoogleMap
+},
+data(){
+    return{
+        
+    }
 }
 }
 </script>
@@ -169,15 +195,20 @@ components:{
 </style>
 <style>
     .content-wrapper{
-            padding-top: 20px;
-            padding-left: 20px;
-            padding-right: 20px;
-        }
+        padding-top: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
     .col-md-6 .float-left{
         margin-left: -15px;
     }
     .timeline-item{
         padding: 10px;
     }
-   
+    .timeline-body{
+        margin-left: 60px;
+    }
+    .card{
+        border-radius: 30px;
+    }
 </style>

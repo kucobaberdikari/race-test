@@ -5,7 +5,7 @@
          <button class="close" type="button" data-widget="pushmenu" aria-label="close" >
               <span aria-hidden="true">&times;</span>
           </button>
-     <a href="#" class="brand-link" >
+     <a href="/" class="brand-link" >
       <img src="../assets/images/newlogo.png" alt="logo" class="brand-image">
       <span class="brand-text font-weight-light"><b>Race Fullfilment</b></span>
     </a>
@@ -62,7 +62,7 @@
             <p>Orders</p>
           </a>
         </li>
-        <li class="nav-header"><b>SETTING</b> </li>
+        <li class="nav-header"><b>SETTINGS</b> </li>
          <li class="nav-item">
           <a href="/integrations" class="nav-link">
             <i class="nav-icon fas fa-file-code"></i>

@@ -1,10 +1,5 @@
 <template>
   <div>
-    <div>
-      <h2>Vue Js Search and Add Marker</h2>
- 
-    </div>
-    <br>
     <gmap-map
         :zoom="14"    
         :center="center"

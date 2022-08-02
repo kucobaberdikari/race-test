@@ -43,7 +43,7 @@
                             </table>
                         </b-tab>
                         <b-tab no-body title="Inbound">
-                           <table class="table table-bordered table-striped table-responsive-md" id="table2">
+                           <table class="table table-bordered table-striped table-responsive-md" id="table">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -90,8 +90,8 @@
                                 </tbody>
                             </table>
                         </b-tab>
-                        <b-tab no-body title="Outbond">
-                           <table class="table table-bordered table-striped table-responsive-md" id="table3">
+                        <b-tab no-body title="Outbound">
+                           <table class="table table-bordered table-striped table-responsive-md" id="table2">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -140,7 +140,7 @@
                             </table>
                         </b-tab>
                         <b-tab no-body title="Sampai">
-                            <table class="table table-bordered table-striped table-responsive-md" id="table6">
+                            <table class="table table-bordered table-striped table-responsive-md" id="table4">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -203,9 +203,9 @@ export default{
       
     },
    computed:{
-        filterstatusInbound(){
-            return this.data.filter(data=>data.status === 'Inbound ');
-        }
+        // filterstatusInbound(){
+        //      this.data.filter(data=>data.status === 'Inbound ');
+        // }
    },
 }
 </script>
