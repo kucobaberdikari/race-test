@@ -10,7 +10,14 @@
             </div>
         </div>  
         <div class="row">
-            <div class="col-md-12">
+           <div class="col-12">
+            <div class="card">
+            <div class="card-header">
+                <div class="float-left">
+                    <button type="button" class="btn btn-warning"></button>
+                </div>
+            </div>
+            <div class="card-body">
                 <b-card no-body>
                     <b-tabs pills card class="col-md-12" content-class="mt-3" justified>
                         <b-tab no-body title="All " active>
@@ -43,7 +50,7 @@
                             </table>
                         </b-tab>
                         <b-tab no-body title="Inbound">
-                           <table class="table table-bordered table-striped table-responsive-md" id="table">
+                           <table class="table table-bordered table-striped table-responsive-md" id="table2">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -79,7 +86,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                     <tr v-for="(data,index) in data" :key="data.id">
+                                     <tr v-for="(data,index) in filterstatusproses" :key="data.id">
                                         <td>{{index+1}}</td>
                                         <td>{{data.invoice}}</td>
                                         <td>{{data.total}}</td>
@@ -103,14 +110,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="(data,index) in data" :key="data.id">
+                                    <tr v-for="(data,index) in filterstatusOutbound" :key="data.id">
                                         <td>{{index+1}}</td>
                                         <td>{{data.invoice}}</td>
                                         <td>{{data.total}}</td>
                                         <td><span class="badge badge-success">{{data.status}}</span></td>
                                         <td>{{data.gudang}}</td>
                                         <td>{{data.created_at}}</td>
-                                        <td></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -128,7 +134,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="data in data" :key="data.id">
+                                    <tr v-for="data in filterstatusDikirim" :key="data.id">
                                         <td>{{data.id}}</td>
                                         <td>{{data.invoice}}</td>
                                         <td>{{data.total}}</td>
@@ -152,7 +158,7 @@
                                     </tr>
                                 </thead>
                                <tbody>
-                                     <tr v-for="(data,index) in data" :key="data.id">
+                                     <tr v-for="(data,index) in filterstatusSampai" :key="data.id">
                                         <td>{{index+1}}</td>
                                         <td>{{data.invoice}}</td>
                                         <td>{{data.total}}</td>
@@ -166,6 +172,8 @@
                     </b-tabs>
                 </b-card>
             </div>
+           </div>
+           </div>
         </div> 
     </div>
 </template>
@@ -203,10 +211,36 @@ export default{
       
     },
    computed:{
-        // filterstatusInbound(){
-        //      this.data.filter(data=>data.status === 'Inbound ');
-        // }
+        filterstatusInbound(){
+            return this.data.filter(function (data){
+                return data.status =='Inbound'
+            })
+        },
+        filterstatusOutbound(){
+            return this.data.filter(function (data){
+                return data.status =='Outbound'
+            })
+        },
+        filterstatusDikirim(){
+            return this.data.filter(function (data){
+                return data.status =='Dikirim'
+            })
+        },
+        filterstatusproses(){
+            return this.data.filter(function (data){
+                return data.status =='proses'
+            })
+        },
+        filterstatusSampai(){
+            return this.data.filter(function (data){
+                return data.status =='Sampai'
+            })
+        },
+
    },
+   methods: {
+    
+   }
 }
 </script>
 
