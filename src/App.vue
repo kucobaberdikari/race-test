@@ -4,8 +4,8 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </nav> -->
-     <NavBar />
-   <SideBar />
+      <NavBar />
+    <SideBar />
     <router-view/>
   </div>
 </template>

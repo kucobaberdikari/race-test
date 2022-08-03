@@ -14,7 +14,7 @@
             <div class="card">
             <div class="card-header">
                 <div class="float-left">
-                    <button type="button" class="btn btn-warning"></button>
+                    <button type="button" class="btn btn-lg btn-warning"><a href="/integrations/add">ADD</a></button>
                 </div>
             </div>
             <div class="card-body">
@@ -38,7 +38,7 @@
                                         <td>{{data.invoice}}</td>
                                         <td>{{data.total}}</td>
                                         <td v-if="data.status === 'Inbound'"> <span class="badge badge-warning">{{data.status}}</span></td>
-                                        <td v-else-if="data.status === 'proses'"> <span class="badge badge-primary">{{data.status}}</span></td>
+                                        <td v-else-if="data.status === 'Proses'"> <span class="badge badge-primary">{{data.status}}</span></td>
                                         <td v-else-if="data.status === 'Outbound'"> <span class="badge badge-success">{{data.status}}</span></td>
                                         <td v-else-if="data.status === 'Dikirim'"> <span class="badge badge-info">{{data.status}}</span></td>
                                         <td v-else-if="data.status === 'Sampai'"> <span class="badge badge-secondary">{{data.status}}</span></td>
@@ -86,7 +86,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                     <tr v-for="(data,index) in filterstatusproses" :key="data.id">
+                                     <tr v-for="(data,index) in filterstatusProses" :key="data.id">
                                         <td>{{index+1}}</td>
                                         <td>{{data.invoice}}</td>
                                         <td>{{data.total}}</td>
@@ -226,9 +226,9 @@ export default{
                 return data.status =='Dikirim'
             })
         },
-        filterstatusproses(){
+        filterstatusProses(){
             return this.data.filter(function (data){
-                return data.status =='proses'
+                return data.status =='Proses'
             })
         },
         filterstatusSampai(){
